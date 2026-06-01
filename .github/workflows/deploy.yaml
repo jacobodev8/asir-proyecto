@@ -22,7 +22,7 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t jacoboasir/asir-proyecto:latest .
+          docker build -t jacoboasir/asir-proyecto:latest ./app
 
   push:
     name: Push Docker Image
@@ -42,6 +42,7 @@ jobs:
       - name: Build and Push image
         uses: docker/build-push-action@v4
         with:
+          context: ./app
           push: true
           tags: jacoboasir/asir-proyecto:latest
 
